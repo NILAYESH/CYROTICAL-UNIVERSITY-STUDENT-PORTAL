@@ -8,13 +8,18 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
   body {
       font-family: 'Nunito', sans-serif;
       margin: 0;
       min-height: 100vh;
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 100%;
+      /* margin-left: auto;
+      margin-right: auto; */
       overflow-x: hidden;
       background: linear-gradient(-45deg, #5f049f, #310688,#2404a7, #6e0055, #880107eb);
   
@@ -23,8 +28,8 @@
       color: white;
       display: flex;
       flex-direction: column;
-      padding-left: 1rem;
-      padding-right: 1rem;
+      /* padding-left: 1rem;
+      padding-right: 1rem; */
     }
 
     @keyframes gradientBG {
@@ -42,9 +47,9 @@
     }
 
   header {
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 100%;
+      /* margin-left: auto;
+      margin-right: auto; */
       padding: 1.5rem 1rem;
       display: flex;
       flex-direction: row;
@@ -52,9 +57,9 @@
       justify-content: center; /* center all header content */
       gap: 2rem; /* add gap between items */
       border-bottom: 1px solid transparent;
-      border-radius: 0 0 3rem 3rem;
       position: sticky;
       top: 0;
+      left: 0;
       background: transparent;
       z-index: 50;
       transition: background 0.9s ease, border-bottom 0.9s ease;
@@ -211,7 +216,7 @@
       display: block;      /* kill the old grid */
       width: 80%;
       height: 110px;       /* further reduced height to make it smaller */
-      padding-bottom: 20rem; /* further increased padding-bottom for even larger gap */
+      padding-bottom: 28rem; /* further increased padding-bottom for even larger gap */
       margin-bottom: 0; /* reset margin-bottom */
       z-index: 0; /* ensure images are behind text */
       pointer-events: none; /* prevent images from interfering with text interaction */
@@ -258,7 +263,6 @@
       padding: 2rem 1.5rem;
       color: #8b949e;
       font-size: 0.875rem;
-      border-radius: 3rem 3rem 0 0;
     }
 
     .footer-grid {
