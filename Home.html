@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Cyrotical University - Home</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+  body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #5f049f, #310688,#2404a7, #6e0055, #880107eb);
+  
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+  header {
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; /* center all header content */
+      gap: 2rem; /* add gap between items */
+      border-bottom: 1px solid transparent;
+      border-radius: 0 0 3rem 3rem;
+      position: sticky;
+      top: 0;
+      background: transparent;
+      z-index: 50;
+      transition: background 0.9s ease, border-bottom 0.9s ease;
+    }
++
++  header nav {
++    flex-grow: 1;
++    display: flex;
++    justify-content: center; /* center nav links */
++  }
++
++  header .btn-login {
++    margin-left: auto; /* push login button to right */
++  }
++
++  footer {
++    max-width: 960px;
++    margin-left: auto;
++    margin-right: auto;
++  }
+
+    header.scrolled {
+      background: #27194b;
+      border-bottom: 1px solid #30363d;
+    }
+
+    h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      user-select: none;
+      margin-bottom: 0;
+      text-shadow:
+        0 0 10px #4019b3,
+        0 0 20px #7f5af0,
+        0 0 30px #2b117b,
+        0 0 40px #7f5af0;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #8b949e;
+      margin-left: auto;
+      margin-right: auto; /* center the nav */
+      justify-content: center; /* center the nav links */
+      width: fit-content; /* shrink nav width to content */
+    }
+
+    nav a {
+      transition: color 0.2s ease;
+      color: #8b949e;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #7f5af0;
+      text-shadow:
+        0 0 5px #7f5af0,
+        0 0 10px #7f5af0;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 3rem;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    main h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow:
+        0 0 10px #7f5af0;
+    }
+
+    main p {
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: #c0c0c0;
+    }
+
+    .btn-primary {
+      background-color: #7f5af0;
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background-color: #5a3dbf;
+    }
+
+    .btn-login {
+      padding: 0.5rem 1.25rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 1.5rem;
+      border: 2px solid transparent;
+      background: linear-gradient(-45deg,rgba(89, 0, 255, 0.936), rgb(160, 0, 192),rgb(22, 0, 192)) padding-box, linear-gradient(45deg, #7f5af0, #5a3dbf) border-box;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      transition: box-shadow 0.3s ease;
+      box-shadow: 0 0 10px #7f5af0;
+      display: inline-block;
+      user-select: none;
+      background-color: #1a1a2e;
+      background-clip: padding-box;
+    }
+
+    .btn-login:hover {
+      box-shadow: 0 0 20px #5a3dbf;
+    }
+
+    .hero-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow:
+        0 0 15px #7f5af0;
+      margin-bottom: 2rem;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    /* Overlapping images container */
+    .grid-stack {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 150px 150px;
+      gap: 10px;
+      position: relative;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+    .grid-stack.overlap {
+      position: relative;
+      display: block;      /* kill the old grid */
+      width: 80%;
+      height: 110px;       /* further reduced height to make it smaller */
+      padding-bottom: 20rem; /* further increased padding-bottom for even larger gap */
+      margin-bottom: 0; /* reset margin-bottom */
+      z-index: 0; /* ensure images are behind text */
+      pointer-events: none; /* prevent images from interfering with text interaction */
+    }
+    .grid-stack.overlap img {
+      position: absolute;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.642);
+      border: 4px solid #5f03f1;
+      border-radius: 0.5rem;
+    }
+    .grid-stack.overlap .g1 {
+      top: 0;
+      left: 0;
+      width: 45%;          /* you can go 40–50% */
+      z-index: 1;
+      transform: rotate(-2deg);
+    }
+    .grid-stack.overlap .g2 {
+      top: 10px;
+      left: 25%;
+      width: 45%;
+      z-index: 2;
+      transform: rotate(2deg);
+    }
+    .grid-stack.overlap .g3 {
+      top: 20px;
+      left: 50%;
+      width: 45%;
+      z-index: 3;
+      transform: rotate(-1deg);
+    }
+    .g1 { grid-column: 1 / span 2; grid-row: 1 / span 2; z-index: 1; }
+    .g2 { grid-column: 2 / span 2; grid-row: 1 / span 1; z-index: 2; }
+    .g3 { grid-column: 1 / span 1; grid-row: 2 / span 1; z-index: 3; }
+
+    footer {
+      width: 100vw;
+      left: 0;
+      right: 0;
+      background-color: #161b22;
+      border-top: 1px solid #30363d;
+      margin-top: 3rem;
+      padding: 2rem 1.5rem;
+      color: #8b949e;
+      font-size: 0.875rem;
+      border-radius: 3rem 3rem 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 64rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 640px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .footer-section h3 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .footer-section ul li a {
+      text-decoration: none;
+      color: inherit;
+      transition: text-decoration 0.2s ease;
+    }
+
+    .footer-section ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-social {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-social a {
+      color: #8b949e;
+      transition: color 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      color: #7f5af0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>CYROTICAL UNIVERSITY</h1>
+    <nav>
+      <a href="box_about.html">Home</a>
+      <a href="box_about.html">About</a>
+      <a href="box_about.html">Admissions</a>
+      <a href="box_about.html">Academics</a>
+      <a href="box_about.html">Contact</a>
+      <a href="box_about.html">More</a>
+    </nav>
+    <a href="box.html" class="btn-login">Student Login</a>
+  </header>
+  <main>
+    <h1 style="font-size: 3.5rem; font-weight: 900;">HOME</h1>
+    <br>
+    <img src="ChatGPT Image Apr 20, 2025, 11_21_21 PM.png" alt="Campus view" class="hero-image" />
+
+    <!-- Overlapping images section -->
+    <div class="grid-stack overlap">  
+      <img src="https://www.belmont.edu/stories/articles/2024/_images/header-ad.jpg" alt="Campus building" class="g1" />
+      <img src="https://www.insidehighered.com/sites/default/files/2024-02/GettyImages-1072191138.jpg" alt="Students" class="g2" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg/1280px-Long_Room_Interior%2C_Trinity_College_Dublin%2C_Ireland_-_Diliff.jpg" alt="Library" class="g3" />
+    </div>
+
+    <h2>Welcome to Cyrotical University</h2>
+    <p>Your gateway to quality education and a bright future. Explore our programs, admissions, and campus life.</p>
+    <p>At Cyrotical University, we are committed to fostering a diverse and inclusive community where students can thrive academically and personally. Our dedicated faculty and state-of-the-art facilities provide the perfect environment for innovation and growth.</p>
+    <p>Join us to experience a vibrant campus life filled with extracurricular activities, research opportunities, and career development programs designed to prepare you for success in a rapidly changing world.</p>
+
+    <!-- New descriptive paragraphs -->
+    <p>Cyrotical University was founded in 1985 with a vision to deliver excellence in education and research. Our sprawling 200-acre campus features modern laboratories, advanced research centers, and a supportive community committed to student success.</p>
+    <p>Recognized nationally for academic rigor and community engagement, we offer over 50 undergraduate and graduate programs across Engineering, Arts, Sciences, and Business. Embrace interdisciplinary learning and global collaborations here.</p>
+
+    <p>Our faculty comprises leading researchers and industry experts who bring real-world experience into the classroom, ensuring students stay at the forefront of their fields.</p>
+    <p>Our expansive alumni network spans the globe, providing mentorship, internship opportunities, and career connections across diverse industries.</p>
+    <a href="box.html" class="btn-primary">Student Login</a>
+    <br>
+    <!-- Additional overlapping images section -->
+    <div class="grid-stack overlap">
+      <img src="https://plus.unsplash.com/premium_photo-1663100641774-cb51237207c6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Research lab" class="g1" />
+      <img src="https://images.sidearmdev.com/convert?url=https%3a%2f%2fdbukjj6eu5tsf.cloudfront.net%2fsidearm.sites%2fsaintmichael.sidearmsports.com%2fimages%2f2024%2f12%2f3%2fDSC_0126.png&type=webp" alt="Sports complex" class="g2" />
+      <img src="https://cnu.edu/_images/academics/computer-science/students-at-computer-with-code-1920x1080.jpg" alt="Student activities" class="g3" />
+    </div>
+
+</main>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>College Address: 123 College St, City, State, ZIP</p>
+        <p>Phone: (+91) 456-7890</p>
+        <p>Email: contact@cyroticaluniversity.edu</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="box_T&C.html">Terms and Conditions</a></li>
+          <li><a href="box_PP.html">Privacy Policy</a></li>
+          <li><a href="box_AC.html">Academic Calendar</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <ul class="footer-social" style="display: flex; flex-direction: row; gap: 1rem; list-style: none; padding: 0; margin: 0;">  
+          <li><a aria-label="Facebook" href="#"><i class="fab fa-facebook fa-lg"></i></a></li>
+          <li><a aria-label="Twitter" href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
+          <li><a aria-label="Instagram" href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
+          <li><a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin fa-lg"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align: center; font-size: 0.75rem; color: #484f58; margin-top: 2rem;">&copy; 2025 CYROTICAL UNIVERSITY. All rights reserved.</p>
+  </footer>
+  <script>
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 8) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+
+</html>

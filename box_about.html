@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your College Name - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXJN3UJn5vZf9e1Vq1x6b5qY5T+G/bFz7bO+jFJz0lJ6/Y9pTRqhG9G1Q4UR+CeulR9O7VWQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #5f049f, #310688,#2404a7, #6e0055, #880107eb);
+
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+    }
+
+    header {
+      background: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      color: #a78bfa;
+      text-shadow: 0 0 10px #a78bfa;
+    }
+
+    .fullscreen-image {
+      max-width: 85%;
+      height: 95;
+      width: 95;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      display: flex;
+      justify-content: right;
+      align-items: right;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background: #1a1a1a;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #a78bfa;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    img {
+      max-width: 85%;
+      height: 95;
+      width: 95;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      background: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .glow-container {
+      box-shadow:
+        0 0 10px #4019b3,
+        0 0 20px #7f5af0,
+        0 0 30px #2b117b,
+        0 0 40px #7f5af0;
+    }
+
+    .header-link:hover {
+      color: #7f5af0;
+      text-shadow:
+        0 0 5px #7f5af0,
+        0 0 10px #7f5af0;
+    }
+  </style>
+</head>
+<body>
+  <header>CYROTICAL UNIVERSITY</header>
+  <nav>
+    <a href="Home.html">Home</a>
+    <a href="#about">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+<div class="fullscreen-image"><img src="ChatGPT Image Apr 20, 2025, 11_21_21 PM.png" alt=""></div>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Welcome to Your College! We are dedicated to providing quality education and fostering innovation and creativity among students.</p>
+    <p>Our college believes in holistic development, encouraging students to excel not just academically, but also in extracurricular activities. Our vibrant campus life and supportive faculty ensure a fulfilling educational journey.</p>
+  </section>
+
+  <section id="courses">
+    <h2>Our Courses</h2>
+    <p>Explore a wide range of academic programs and find the one that suits your interests and career goals.</p>
+    <p>We offer undergraduate, postgraduate, and diploma courses across various disciplines such as Science, Commerce, Arts, Technology, and Management. Our curriculum is designed to be industry-relevant and future-ready.</p>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <img src="https://www.belmont.edu/stories/articles/2024/_images/header-ad.jpg" alt="Campus Image" />
+    <p>Take a glimpse at our beautiful campus, state-of-the-art classrooms, and vibrant student activities.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@yourcollege.edu</p>
+    <p>Phone: (123) 456-7890</p>
+    <p>Address: 123 College St, City, State, ZIP</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Your College Name. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const options = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

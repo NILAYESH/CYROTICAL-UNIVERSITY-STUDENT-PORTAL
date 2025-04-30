@@ -1,0 +1,133 @@
+/* Neon Lights Theme with Bold Fonts and Fixed Alignment */
+
+body {
+    background-color: #043158;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    padding: 20px;
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+/* Container styling */
+div {
+    margin: 15px auto;
+    width: 80%;
+    max-width: 500px;
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #00ffcc;
+    text-shadow: 0 0 5px #00ffcc;
+    font-weight: bold;
+}
+
+/* Input fields with consistent glow */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    background-color: #1a1a1a;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 0 0 10px #00ffff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Checkbox and radio input default color */
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: #00ffff;
+    margin-right: 6px;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #ff00ff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 0 15px #ff00ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #cc00cc;
+    box-shadow: 0 0 25px #ff00ff;
+    transform: scale(1.05);
+}
+
+/* Textarea */
+textarea {
+    resize: vertical;
+    min-height: 80px;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+/* Select field */
+select {
+    background-color: #1a1a1a;
+}
+
+/* Radio buttons - inline layout */
+div:has(input[type="radio"]) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Plan heading spans full width */
+div:has(input[type="radio"]) p {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Radio buttons spacing */
+div:has(input[type="radio"]) input[type="radio"],
+div:has(input[type="radio"]) label {
+    margin-right: 15px;
+}
+
+/* Checkbox alignment fix */
+div:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Checkbox label */
+div:has(input[type="checkbox"]) label {
+    display: inline;
+    margin: 0;
+    color: #00ffcc;
+    text-shadow: 0 0 5px #00ffcc;
+    font-weight: bold;
+}
+
+/* Link inside checkbox label */
+a {
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+    font-weight: bold;
+}

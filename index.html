@@ -1,0 +1,307 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   College Portal - Student Registration &amp; Login
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-gradient-to-b from-black via-[#0a0a0a] to-[#1a0a1a] min-h-screen flex flex-col">
+  <div class="max-w-[1100px] w-full mx-auto rounded-2xl bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.1)] backdrop-blur-[40px] p-6 md:p-10 mt-6 mb-6">
+   <!-- Navigation -->
+   <nav class="flex items-center justify-between text-white text-[13px] font-semibold mb-10 select-none">
+    <div class="flex items-center space-x-4">
+     <button class="flex items-center space-x-2 bg-[rgba(255,255,255,0.1)] px-3 py-1 rounded-full text-white text-[14px] font-semibold">
+      <i class="fas fa-university">
+      </i>
+      <span>
+       MyCollege
+      </span>
+     </button>
+     <ul class="hidden sm:flex space-x-5 text-[11px] font-normal text-white/60">
+      <li>
+       Home
+      </li>
+      <li>
+       About
+      </li>
+      <li>
+       Courses
+      </li>
+      <li>
+       Contact
+      </li>
+     </ul>
+    </div>
+    <div class="flex items-center space-x-4 text-[12px] font-normal text-white/70">
+     <button class="hover:text-white cursor-pointer" id="loginBtn">
+      Log in
+     </button>
+     <button class="flex items-center space-x-1 bg-white text-black rounded-full px-4 py-1 text-[12px] font-semibold cursor-pointer" id="signupBtn">
+      <span>
+       Sign Up
+      </span>
+      <i class="fas fa-arrow-up-right">
+      </i>
+     </button>
+    </div>
+   </nav>
+   <!-- Main Content -->
+   <div class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-12">
+    <!-- Left Text Content -->
+    <div class="flex-1 max-w-[380px] md:max-w-[400px] text-white select-text">
+     <h1 class="text-[26px] md:text-[28px] font-semibold leading-[1.2] mb-3">
+      Welcome to MyCollege Portal
+      <br/>
+      Register or Login to Access
+      <br/>
+      Your Academic Details
+     </h1>
+     <p class="text-[12px] text-white/40 mb-6 leading-5">
+      Students can register and login to view their marks,
+      <br/>
+      semester results, rankings, and other personal details.
+     </p>
+     <div class="flex items-center space-x-2 text-[14px] font-semibold">
+      <span>
+       5000+
+      </span>
+      <div class="text-[9px] font-normal text-white/50">
+       active
+       <br/>
+       students
+      </div>
+     </div>
+    </div>
+    <!-- Right Image Content -->
+    <div class="relative flex-1 max-w-[520px] md:max-w-[600px]">
+     <img alt="College campus with students and modern buildings under blue sky" class="rounded-3xl w-full object-cover" height="350" src="https://storage.googleapis.com/a1aa/image/e9108173-b1f9-43c2-e86f-9643d5a31d2a.jpg" width="600"/>
+    </div>
+   </div>
+  </div>
+  <!-- Registration & Login Modal -->
+  <div class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 hidden z-50" id="modal">
+   <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.15)] rounded-2xl backdrop-blur-[40px] max-w-md w-full p-6 text-white relative">
+    <button class="absolute top-3 right-3 text-white text-xl hover:text-gray-300" id="closeModal" aria-label="Close modal">
+     <i class="fas fa-times">
+     </i>
+    </button>
+    <h2 class="text-2xl font-semibold mb-6 text-center" id="modalTitle">
+     Sign Up
+    </h2>
+    <form class="space-y-4" id="form" novalidate>
+     <div id="nameField">
+      <label class="block mb-1 text-[13px]" for="name">
+       Full Name
+      </label>
+      <input autocomplete="name" class="w-full rounded-md bg-[rgba(255,255,255,0.1)] border border-white/20 px-3 py-2 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500" id="name" name="name" placeholder="Enter your full name" required="" type="text"/>
+     </div>
+     <div>
+      <label class="block mb-1 text-[13px]" for="email">
+       Email
+      </label>
+      <input autocomplete="email" class="w-full rounded-md bg-[rgba(255,255,255,0.1)] border border-white/20 px-3 py-2 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" name="email" placeholder="Enter your email" required="" type="email"/>
+     </div>
+     <div>
+      <label class="block mb-1 text-[13px]" for="password">
+       Password
+      </label>
+      <input autocomplete="current-password" class="w-full rounded-md bg-[rgba(255,255,255,0.1)] border border-white/20 px-3 py-2 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500" id="password" name="password" placeholder="Enter your password" required="" type="password"/>
+     </div>
+     <button class="w-full bg-blue-600 hover:bg-blue-700 rounded-full py-2 font-semibold text-white transition" type="submit" aria-label="Submit form">
+      Register
+     </button>
+    </form>
+    <p class="mt-4 text-center text-[12px] text-white/60">
+     Already have an account?
+     <button class="text-blue-400 hover:underline font-semibold" id="switchToLogin" type="button">
+      Log in
+     </button>
+    </p>
+   </div>
+  </div>
+  <!-- Dashboard Section (hidden initially) -->
+  <div class="max-w-[1100px] w-full mx-auto rounded-2xl bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.1)] backdrop-blur-[40px] p-6 md:p-10 mt-6 mb-6 text-white hidden" id="dashboard" role="region" aria-live="polite" aria-label="Student Dashboard">
+   <h2 class="text-3xl font-semibold mb-6 text-center">
+    Student Dashboard
+   </h2>
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section class="bg-[rgba(255,255,255,0.1)] rounded-xl p-4" aria-labelledby="personalDetailsTitle">
+     <h3 class="font-semibold mb-2 text-lg border-b border-white/20 pb-1" id="personalDetailsTitle">
+      Personal Details
+     </h3>
+     <p>
+      <span class="font-semibold">
+       Name:
+      </span>
+      <span id="dashName">
+      </span>
+     </p>
+     <p>
+      <span class="font-semibold">
+       Email:
+      </span>
+      <span id="dashEmail">
+      </span>
+     </p>
+     <p>
+      <span class="font-semibold">
+       Student ID:
+      </span>
+      20234567
+     </p>
+     <p>
+      <span class="font-semibold">
+       Department:
+      </span>
+      Computer Science
+     </p>
+    </section>
+    <section class="bg-[rgba(255,255,255,0.1)] rounded-xl p-4" aria-labelledby="semesterMarksTitle">
+     <h3 class="font-semibold mb-2 text-lg border-b border-white/20 pb-1" id="semesterMarksTitle">
+      Semester Marks
+     </h3>
+     <ul class="list-disc list-inside space-y-1 text-sm">
+      <li>
+       Semester 1: 85%
+      </li>
+      <li>
+       Semester 2: 88%
+      </li>
+      <li>
+       Semester 3: 90%
+      </li>
+      <li>
+       Semester 4: 87%
+      </li>
+     </ul>
+    </section>
+    <section class="bg-[rgba(255,255,255,0.1)] rounded-xl p-4" aria-labelledby="rankingTitle">
+     <h3 class="font-semibold mb-2 text-lg border-b border-white/20 pb-1" id="rankingTitle">
+      Ranking
+     </h3>
+     <p class="text-4xl font-bold text-blue-400 text-center mt-6">
+      Top 5%
+     </p>
+     <p class="text-center mt-2 text-sm text-white/70">
+      Among 5000+ students
+     </p>
+    </section>
+   </div>
+   <div class="mt-8 text-center">
+    <button class="bg-red-600 hover:bg-red-700 rounded-full py-2 px-6 font-semibold text-white transition" id="logoutBtn" type="button">
+     Log Out
+    </button>
+   </div>
+  </div>
+  <script>
+   const modal = document.getElementById("modal");
+   const loginBtn = document.getElementById("loginBtn");
+   const signupBtn = document.getElementById("signupBtn");
+   const closeModal = document.getElementById("closeModal");
+   const modalTitle = document.getElementById("modalTitle");
+   const form = document.getElementById("form");
+   const switchToLogin = document.getElementById("switchToLogin");
+   const dashboard = document.getElementById("dashboard");
+   const logoutBtn = document.getElementById("logoutBtn");
+   const dashName = document.getElementById("dashName");
+   const dashEmail = document.getElementById("dashEmail");
+   const nameField = document.getElementById("nameField");
+
+   let isLoginMode = false;
+
+   // Show modal for signup
+   signupBtn.addEventListener("click", () => {
+     isLoginMode = false;
+     modalTitle.textContent = "Sign Up";
+     form.querySelector("button[type=submit]").textContent = "Register";
+     nameField.style.display = "block";
+     modal.classList.remove("hidden");
+   });
+
+   // Show modal for login
+   loginBtn.addEventListener("click", () => {
+     isLoginMode = true;
+     modalTitle.textContent = "Log In";
+     form.querySelector("button[type=submit]").textContent = "Log In";
+     nameField.style.display = "none";
+     modal.classList.remove("hidden");
+   });
+
+   // Close modal
+   closeModal.addEventListener("click", () => {
+     modal.classList.add("hidden");
+     form.reset();
+   });
+
+   // Switch to login from signup modal
+   switchToLogin.addEventListener("click", () => {
+     isLoginMode = true;
+     modalTitle.textContent = "Log In";
+     form.querySelector("button[type=submit]").textContent = "Log In";
+     nameField.style.display = "none";
+     form.reset();
+   });
+
+   // Form submit handler
+   form.addEventListener("submit", (e) => {
+     e.preventDefault();
+     const email = form.email.value.trim();
+     const password = form.password.value.trim();
+
+     if (!email || !password) {
+       alert("Please fill in all required fields.");
+       return;
+     }
+
+     if (isLoginMode) {
+       // Login logic (mock)
+       const storedUser = JSON.parse(localStorage.getItem("studentUser"));
+       if (storedUser && storedUser.email === email && storedUser.password === password) {
+         showDashboard(storedUser);
+         modal.classList.add("hidden");
+         form.reset();
+       } else {
+         alert("Invalid email or password.");
+       }
+     } else {
+       // Signup logic (mock)
+       const name = form.name.value.trim();
+       if (!name) {
+         alert("Please enter your full name.");
+         return;
+       }
+       const newUser = { name, email, password };
+       localStorage.setItem("studentUser", JSON.stringify(newUser));
+       alert("Registration successful! Please log in.");
+       isLoginMode = true;
+       modalTitle.textContent = "Log In";
+       form.querySelector("button[type=submit]").textContent = "Log In";
+       nameField.style.display = "none";
+       form.reset();
+     }
+   });
+
+   // Show dashboard with user info
+   function showDashboard(user) {
+     dashName.textContent = user.name;
+     dashEmail.textContent = user.email;
+     dashboard.classList.remove("hidden");
+   }
+
+   // Logout button
+   logoutBtn.addEventListener("click", () => {
+     dashboard.classList.add("hidden");
+   });
+  </script>
+ </body>
+</html>

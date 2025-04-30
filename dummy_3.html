@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login & Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background: linear-gradient(-45deg, #46606d, #0b4559, #00508e);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+      transition: 0.3s, color 0.3s;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    header, footer {
+      padding: 1em;
+      background: #1c1c1c;
+      text-align: center;
+    }
+    .container {
+      padding: 2em;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .form-box {
+      max-width: 400px;
+      margin: 2em auto;
+      background: #1c1c1c;
+      padding: 2em;
+      border-radius: 12px;
+    }
+    .form-box h2 {
+      margin-bottom: 1em;
+    }
+    .form-box input {
+      width: 100%;
+      padding: 0.8em;
+      margin: 0.5em 0;
+      border: none;
+      border-radius: 8px;
+    }
+    .form-box button {
+      width: 100%;
+      padding: 0.8em;
+      background: #00ffc8;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+    .form-box a {
+      color: #00ffc8;
+      font-size: 0.9em;
+      display: block;
+      margin-top: 0.5em;
+      text-align: center;
+      text-decoration: none;
+    }
+    .hidden {
+      display: none;
+    }
+    .profile, .academic, .remarks {
+      display: none;
+    }
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 2px solid #00ffc8;
+      object-fit: cover;
+    }
+    .profile, .academic, .remarks {
+      background: #1f1f1f;
+      padding: 1em;
+      border-radius: 12px;
+      margin-bottom: 2em;
+    }
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+    }
+    .profile-details button {
+      background: #00ffc8;
+      color: #000;
+      padding: 0.5em 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 0.5em;
+    }
+    .remark {
+      margin: 1em 0;
+      padding: 1em;
+      background: #292929;
+      border-left: 5px solid #00ffc8;
+    }
+    .remark button {
+      margin: 0.2em;
+      background: #333;
+      color: #00ffc8;
+      border: none;
+      border-radius: 5px;
+      padding: 0.3em 0.6em;
+      cursor: pointer;
+    }
+    footer {
+      font-size: 0.9em;
+      color: #aaa;
+    }
+    footer a {
+      color: #00ffc8;
+      text-decoration: none;
+      margin: 0 0.5em;
+    }
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+    #error-message {
+      background-color: #1e1e1e;
+      border-left: 4px solid #ff4c4c;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 12px;
+      color: #ff4c4c;
+      display: none;
+      animation: shake 0.3s ease-in-out;
+    }
+    #success-message {
+      background-color: #1e1e1e;
+      border-left: 4px solid #00ff99;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 12px;
+      color: #00ff99;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Student Profile Portal</h1>
+  </header>
+  <div class="container">
+    <div class="form-box" id="loginBox">
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" id="loginEmail">
+      <input type="password" placeholder="Password" id="loginPassword">
+      <button onclick="handleLogin()">Login</button>
+      <p id="error-message"></p>
+      <p id="success-message"></p>
+      <a href="#" onclick="showRegister()">Register</a>
+      <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+    </div>
+
+    <div class="form-box hidden" id="registerBox">
+      <h2>Register</h2>
+      <input type="text" placeholder="Full Name" id="regName">
+      <input type="email" placeholder="Email" id="regEmail">
+      <input type="password" placeholder="Password" id="regPassword">
+      <button onclick="handleRegister()">Register</button>
+      <a href="#" onclick="showLogin()">Back to Login</a>
+    </div>
+
+    <section class="profile" id="profile">
+      <img id="profileImg" src="https://via.placeholder.com/120" alt="Profile Picture">
+      <div class="profile-details">
+        <h2 id="studentName">Student Name</h2>
+        <p id="studentEmail">Email:</p>
+        <p id="studentDOB">DOB:</p>
+        <p id="studentPhone">Phone:</p>
+        <button onclick="editProfile()">Edit Profile</button>
+      </div>
+    </section>
+
+    <section class="academic" id="academic">
+      <h3>Academic Journey</h3>
+      <ul>
+        <li>Semester 1 - Maths: A, Physics: B+</li>
+        <li>Semester 2 - DS: A+, OOP: A</li>
+      </ul>
+      <button onclick="downloadTranscript()">Download Transcript</button>
+    </section>
+
+    <section class="remarks" id="remarks">
+      <h3>Teacher Remarks</h3>
+      <div class="remark">
+        <p><strong>Prof. Sharma:</strong> Excellent progress!</p>
+        <button onclick="react('love')">❤️</button>
+        <button onclick="react('like')">👍</button>
+        <button onclick="react('clarify')">Request Clarification</button>
+      </div>
+      <div class="remark">
+        <p><strong>Prof. Verma:</strong> Needs improvement in DS.</p>
+        <button onclick="react('love')">❤️</button>
+        <button onclick="react('like')">👍</button>
+        <button onclick="react('clarify')">Request Clarification</button>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <p>
+      <a href="https://example.com/contact" target="_blank">Contact Us</a> |
+      <a href="https://example.com/terms" target="_blank">Terms and Conditions</a> |
+      <a href="https://example.com/privacy" target="_blank">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script>
+    const users = [
+      { name: "Alice", email: "alice@example.com", password: "alice123" },
+      { name: "Bob", email: "bob@example.com", password: "bob456" },
+      { name: "Charlie", email: "charlie@example.com", password: "charlie789" },
+      { name: "David", email: "david@example.com", password: "david321" },
+      { name: "Eve", email: "eve@example.com", password: "eve654" },
+      { name: "Frank", email: "frank@example.com", password: "frank987" },
+      { name: "Grace", email: "grace@example.com", password: "grace159" },
+      { name: "Hank", email: "hank@example.com", password: "hank753" },
+      { name: "Ivy", email: "ivy@example.com", password: "ivy456" },
+      { name: "John", email: "john@example.com", password: "john000" }
+    ];
+
+    function showRegister() {
+      document.getElementById('loginBox').classList.add('hidden');
+      document.getElementById('registerBox').classList.remove('hidden');
+    }
+
+    function showLogin() {
+      document.getElementById('registerBox').classList.add('hidden');
+      document.getElementById('loginBox').classList.remove('hidden');
+    }
+
+    function forgotPassword() {
+      alert("Password reset link sent to your email.");
+    }
+
+    function editProfile() {
+      alert("Edit profile clicked. Redirecting to form...");
+    }
+
+    function downloadTranscript() {
+      alert("Downloading transcript as PDF...");
+    }
+
+    function react(type) {
+      switch(type) {
+        case 'love': alert('You loved this remark.'); break;
+        case 'like': alert('You liked this remark.'); break;
+        case 'clarify': alert('Clarification requested.'); break;
+      }
+    }
+
+    function handleRegister() {
+      const name = document.getElementById('regName').value;
+      const email = document.getElementById('regEmail').value;
+      const password = document.getElementById('regPassword').value;
+      users.push({ name, email, password });
+      alert("Registered successfully! Please login.");
+      showLogin();
+    }
+
+    function handleLogin() {
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      const errorDiv = document.getElementById("error-message");
+      const successDiv = document.getElementById("success-message");
+
+      const userFound = users.find(u => u.email === email && u.password === password);
+
+      if (userFound) {
+        errorDiv.style.display = "none";
+        successDiv.innerText = "Login successful! Welcome " + userFound.name;
+        successDiv.style.display = "block";
+
+        document.getElementById('studentName').textContent = userFound.name;
+        document.getElementById('studentEmail').textContent = 'Email: ' + userFound.email;
+        document.getElementById('studentDOB').textContent = 'DOB: 2000-01-01';
+        document.getElementById('studentPhone').textContent = 'Phone: 1234567890';
+
+        document.getElementById('loginBox').classList.add('hidden');
+        document.getElementById('profile').style.display = 'flex';
+        document.getElementById('academic').style.display = 'block';
+        document.getElementById('remarks').style.display = 'block';
+      } else {
+        successDiv.style.display = "none";
+        errorDiv.innerText = "Wrong email or password. Please try again.";
+        errorDiv.style.display = "block";
+        errorDiv.classList.remove("shake");
+        void errorDiv.offsetWidth;
+        errorDiv.classList.add("shake");
+      }
+    }
+  </script>
+</body>
+</html>

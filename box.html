@@ -1,0 +1,585 @@
+<html lang="en">
+
+<head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>College Student Login</title>
+  <link href="box.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #5f049f, #310688, #2404a7, #6e0055, #880107eb);
+
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      /* padding-left: 1rem;
+      padding-right: 1rem; */
+    }
+
+    header {
+      width: 100%;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-bottom: 1px solid transparent;
+      border-radius: 0 0 3rem 3rem;
+      position: sticky;
+      top: 0;
+      background: transparent;
+      z-index: 50;
+      transition: background 0.9s ease, border-bottom 0.9s ease;
+    }
+
+    header.scrolled {
+      background: #27194b;
+      border-bottom: 1px solid #30363d;
+    }
+
+    h1 {
+      font-size: 1.875rem;
+      /* 3xl */
+      font-weight: 800;
+      /* extrabold */
+      user-select: none;
+      margin-bottom: 0;
+      text-shadow:
+        0 0 10px #4019b3,
+        0 0 20px #7f5af0,
+        0 0 30px #2b117b,
+        0 0 40px #7f5af0;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      /* space-x-6 */
+      font-size: 0.875rem;
+      /* text-sm */
+      font-weight: 600;
+      /* font-semibold */
+      color: #8b949e;
+    }
+
+    nav a {
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #7f5af0;
+      text-shadow:
+        0 0 5px #7f5af0,
+        0 0 10px #7f5af0;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 3rem;
+      /* mt-12 */
+    }
+
+    footer {
+      width: 100vw;
+      left: 0;
+      right: 0;
+      background-color: #161b22;
+      border-top: 1px solid #30363d;
+      margin-top: 3rem;
+      /* mt-12 */
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      color: #8b949e;
+      font-size: 0.875rem;
+      /* text-sm */
+      /* border-radius: 3rem 3rem 0 0; */
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 64rem;
+      /* max-w-4xl */
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .footer-section h3 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .footer-section ul li a {
+      text-decoration: none;
+      color: inherit;
+      transition: text-decoration 0.2s ease;
+    }
+
+    .footer-section ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      color: #8b949e;
+      transition: color 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      color: #7f5af0;
+    }
+
+    .glow-container {
+      box-shadow:
+        0 0 10px #4019b3,
+        0 0 20px #7f5af0,
+        0 0 30px #2b117b,
+        0 0 40px #7f5af0;
+    }
+
+    .header-link:hover {
+      color: #7f5af0;
+      text-shadow:
+        0 0 5px #7f5af0,
+        0 0 10px #7f5af0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>CYROTICAL UNIVERSITY</h1>
+    <nav>
+      <a class="header-link" href="Home.html">Home</a>
+      <a class="header-link" href="box_about.html">About</a>
+      <a class="header-link" href="box_about.html">Admissions</a>
+      <a class="header-link" href="box_about.html">Academics</a>
+      <a class="header-link" href="box_about.html">Contact</a>
+      <a class="header-link" href="box_about.html">More</a>
+    </nav>
+  </header>
+  <main>
+
+    <script>
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 8) { // approx half an inch
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    </script>
+    <!-- Login Form -->
+    <div id="loginContainer" style="width: 100%; max-width: 28rem; background-color: #161b22; border-radius: 0.5rem; box-shadow:
+        0 0 10px #4019b3,
+        0 0 20px #7f5af0,
+        0 0 30px #2b117b,
+        0 0 40px #7f5af0; padding: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; text-align: center;">Student Login</h2>
+      <form id="loginForm" style="display: flex; flex-direction: column; gap: 1.5rem;" autocomplete="off" novalidate>
+        <div>
+          <label for="loginId"
+            style="display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem;">Student ID</label>
+          <input type="text" id="loginId"
+            style="width: 100%; border-radius: 0.375rem; border: 1px solid #30363d; background-color: #0d1117; padding: 0.75rem 0.75rem; font-size: 0.875rem; color: white; caret-color: #7f5af0; outline: none;"
+            placeholder="Enter your student ID">
+        </div>
+        <div>
+          <label for="loginPwd"
+            style="display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem;">Password</label>
+          <input type="password" id="loginPwd"
+            style="width: 100%; border-radius: 0.375rem; border: 1px solid #30363d; background-color: #0d1117; padding: 0.75rem 0.75rem; font-size: 0.875rem; color: white; caret-color: #7f5af0; outline: none;"
+            placeholder="Enter your password">
+        </div>
+        <button type="submit"
+          style="width: 100%; background-color: #7f5af0; color: white; font-weight: 600; padding: 0.5rem; border-radius: 0.375rem; font-size: 0.875rem; border: none; cursor: pointer; transition: background-color 0.2s ease;">
+          Log In
+        </button>
+      </form>
+      <p style="font-size: 0.75rem; color: #8b949e; margin-top: 1rem; text-align: center;">Don't have an account? <a
+          href="#" id="toggleRegister" style="color: #58a6ff; text-decoration: none; cursor: pointer;"
+          onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Register
+          here</a></p>
+    </div>
+
+    <!-- Registration Form -->
+    <div id="registerContainer" style="display:none; width: 100%; max-width: 28rem; background-color: #161b22; border-radius: 0.5rem; box-shadow:
+        0 0 10px #4019b3,
+        0 0 20px #7f5af0,
+        0 0 30px #2b117b,
+        0 0 40px #7f5af0; padding: 2rem; margin-top: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; text-align: center;">Student Registration
+      </h2>
+      <form id="registerForm" style="display: flex; flex-direction: column; gap: 1.5rem;" novalidate>
+        <div>
+          <label for="regId"
+            style="display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem;">Student ID</label>
+          <input type="text" id="regId"
+            style="width: 100%; border-radius: 0.375rem; border: 1px solid #30363d; background-color: #0d1117; padding: 0.75rem 0.75rem; font-size: 0.875rem; color: white; caret-color: #7f5af0; outline: none;"
+            placeholder="Choose a student ID">
+        </div>
+        <div>
+          <label for="regPwd"
+            style="display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.25rem;">Password</label>
+          <input type="password" id="regPwd"
+            style="width: 100%; border-radius: 0.375rem; border: 1px solid #30363d; background-color: #0d1117; padding: 0.75rem 0.75rem; font-size: 0.875rem; color: white; caret-color: #7f5af0; outline: none;"
+            placeholder="Create a password">
+        </div>
+        <button type="submit"
+          style="width: 100%; background-color: #58a6ff; color: white; font-weight: 600; padding: 0.5rem; border-radius: 0.375rem; font-size: 0.875rem; border: none; cursor: pointer; transition: background-color 0.2s ease;">
+          Register
+        </button>
+      </form>
+      <p style="font-size: 0.75rem; color: #8b949e; margin-top: 1rem; text-align: center;">Already have an account? <a
+          href="#" id="toggleLogin" style="color: #58a6ff; text-decoration: none; cursor: pointer;"
+          onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Login
+          here</a></p>
+    </div>
+
+    <!-- Dashboard Section -->
+
+  </main>
+
+  <footer
+    style="background-color: #161b22; border-top: 1px solid #30363d; margin-top: 3rem; padding-top: 2rem; padding-bottom: 2rem; width: 100vw; left: 0; right: 0; color: #8b949e; font-size: 0.875rem;">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>College Address: 123 College St, City, State, ZIP</p>
+        <p>Phone: (+91) 456-7890</p>
+        <p>Email: contact@cyroticaluniversity.edu</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="box_T&C.html">Terms and Conditions</a></li>
+          <li><a href="box_PP.html">Privacy Policy</a></li>
+          <li><a href="box_AC.html">Academic Calendar</a></li>
+          <!-- <li><a href="#">Student Handbook</a></li> -->
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <ul class="footer-social"
+          style="display: flex; flex-direction: row; gap: 1rem; list-style: none; padding: 0; margin: 0;">
+          <li><a aria-label="Facebook" href="#"><i class="fab fa-facebook fa-lg"></i></a></li>
+          <li><a aria-label="Twitter" href="#"><i class="fab fa-twitter fa-lg"></i></a></li>
+          <li><a aria-label="Instagram" href="#"><i class="fab fa-instagram fa-lg"></i></a></li>
+          <li><a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin fa-lg"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align: center; font-size: 0.75rem; color: #484f58; margin-top: 2rem;">&copy; 2025 CYROTICAL
+      UNIVERSITY. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Preserve previous localStorage behavior
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedId = localStorage.getItem('studentId');
+      const savedPw = localStorage.getItem('password');
+      if (savedId) document.getElementById('loginId').value = savedId;
+      if (savedPw) document.getElementById('loginPwd').value = savedPw;
+    });
+    document.getElementById('loginForm').addEventListener('input', () => {
+      localStorage.setItem('studentId', document.getElementById('loginId').value);
+      localStorage.setItem('password', document.getElementById('loginPwd').value);
+    });
+
+    // Toggle login/register
+    const loginContainer = document.getElementById('loginContainer');
+    const registerContainer = document.getElementById('registerContainer');
+    document.getElementById('toggleRegister').addEventListener('click', e => {
+      e.preventDefault();
+      loginContainer.style.display = 'none';
+      registerContainer.style.display = 'block';
+      registerContainer.classList.remove('hidden');
+      loginContainer.classList.add('hidden');
+    });
+    document.getElementById('toggleLogin').addEventListener('click', e => {
+      e.preventDefault();
+      registerContainer.style.display = 'none';
+      loginContainer.style.display = 'block';
+      registerContainer.classList.add('hidden');
+      loginContainer.classList.remove('hidden');
+    });
+
+    // User store
+    let users = JSON.parse(localStorage.getItem('users')) || {};
+
+    // Registration logic
+
+    // Create a container for in-webpage popups
+    const popupContainer = document.createElement('div');
+    popupContainer.id = 'popupContainer';
+    popupContainer.style.position = 'fixed';
+    popupContainer.style.top = '80px';
+    popupContainer.style.left = '50%';
+    popupContainer.style.transform = 'translateX(-50%)';
+    popupContainer.style.zIndex = '1000';
+    popupContainer.style.minWidth = '300px';
+    popupContainer.style.padding = '1rem 2rem';
+    popupContainer.style.borderRadius = '0.5rem';
+    popupContainer.style.textAlign = 'center';
+    popupContainer.style.fontWeight = '600';
+    popupContainer.style.color = '#fff';
+    popupContainer.style.background = 'rgba(127, 90, 240, 0.9)';
+    popupContainer.style.boxShadow = '0 0 10px #7f5af0';
+    popupContainer.style.display = 'none';
+    document.body.appendChild(popupContainer);
+
+    function showPopup(message, duration = 3000) {
+      popupContainer.textContent = message;
+      popupContainer.style.display = 'block';
+      setTimeout(() => {
+        popupContainer.style.display = 'none';
+      }, duration);
+    }
+
+    // Show after login popup
+    function showAfterLoginPopup() {
+      showPopup('Login successful! Welcome back.', 4000);
+    }
+
+    // Call after login popup on successful login
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const id = document.getElementById('loginId').value.trim();
+      const pwd = document.getElementById('loginPwd').value;
+      if (users[id] && users[id] === pwd) {
+        localStorage.setItem('studentName', id);
+        // Set session flag for showing popup on dashboard
+        sessionStorage.setItem('justLoggedIn', 'true');
+        window.location.href = 'dashboard_updated.html';
+      } else {
+        const popup = document.getElementById('popupContainer');
+        popup.style.top = '40px';
+        showPopup('Invalid Student ID or Password');
+      }
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const id = document.getElementById('regId').value.trim();
+      const pwd = document.getElementById('regPwd').value;
+      if (!id || !pwd) {
+        // Removed popup for empty fields as per request
+        // Also prevent form submission silently
+        return false;
+      }
+      if (users[id]) {
+        showPopup('Student ID already exists');
+        return;
+      }
+      users[id] = pwd;
+      localStorage.setItem('users', JSON.stringify(users));
+      showPopup('Registration successful! You can now login.');
+      document.getElementById('regId').value = '';
+      document.getElementById('regPwd').value = '';
+      document.getElementById('toggleLogin').click();
+    });
+
+    // Remove redundant login event listeners and consolidate login logic
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const id = document.getElementById('loginId').value.trim();
+      const pwd = document.getElementById('loginPwd').value;
+      if (users[id] && users[id] === pwd) {
+        // Save logged in user
+        localStorage.setItem('studentName', id);
+
+        // Redirect to dashboard_updated.html after successful login
+        window.location.href = 'dashboard_updated.html';
+      } else {
+        // alert('Invalid Student ID or Password');
+      }
+    });
+
+    // Logout
+    document.getElementById('logoutBtn')?.addEventListener('click', () => {
+      // Clear user session data
+      localStorage.removeItem('studentName');
+      localStorage.removeItem('studentId');
+      localStorage.removeItem('password');
+
+      // Clear UI fields
+      document.getElementById('loginId').value = '';
+      document.getElementById('loginPwd').value = '';
+      const userNameSpan = document.getElementById('userName');
+      const dashboardNameSpan = document.getElementById('dashboardName');
+      if (userNameSpan) userNameSpan.textContent = '';
+      if (dashboardNameSpan) dashboardNameSpan.textContent = '';
+
+      // Toggle UI visibility
+      document.getElementById('dashboardContainer').classList.add('hidden');
+      loginContainer.classList.remove('hidden');
+    });
+  </script>
+  <script>
+    // Remove redundant login event listener that logs in without validation
+    // Dummy data - replace with your login logic
+    const loggedInUser = localStorage.getItem('studentName') || 'Student';
+
+    // Set the username in the welcome banner
+    document.addEventListener("DOMContentLoaded", function () {
+      const userNameSpan = document.getElementById("userName");
+      const dashboardName = document.getElementById("dashboardName");
+
+      if (userNameSpan) userNameSpan.textContent = loggedInUser;
+      if (dashboardName) dashboardName.textContent = loggedInUser;
+    });
+
+    // Logout functionality
+    document.getElementById("logoutBtn")?.addEventListener("click", function () {
+      localStorage.removeItem("studentName");
+      document.getElementById("dashboardContainer").classList.add("hidden");
+      document.getElementById("loginContainer").classList.remove("hidden");
+    });
+  </script>
+  <!-- Consolidated JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const loginContainer = document.getElementById('loginContainer');
+      const registerContainer = document.getElementById('registerContainer');
+      const dashboardContainer = document.getElementById('dashboardContainer');
+      const toggleRegister = document.getElementById('toggleRegister');
+      const toggleLogin = document.getElementById('toggleLogin');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const userName = document.getElementById('userName');
+      const dashboardName = document.getElementById('dashboardName');
+      const currentDate = document.getElementById("currentDate");
+
+      // Toggle between login and register
+      toggleRegister.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginContainer.classList.add('hidden');
+        registerContainer.classList.remove('hidden');
+      });
+
+      toggleLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerContainer.classList.add('hidden');
+        loginContainer.classList.remove('hidden');
+      });
+
+      // Remove generic login event listener to avoid bypassing validation
+      // Login logic
+      // loginForm.addEventListener('submit', (e) => {
+      //   e.preventDefault();
+      //   const id = document.getElementById('loginId').value.trim();
+      //   const pwd = document.getElementById('loginPwd').value;
+      //   if (id && pwd) {
+      //     userName.textContent = id;
+      //     dashboardName.textContent = id;
+      //     loginContainer.classList.add('hidden');
+      //     dashboardContainer.classList.remove('hidden');
+      //   } else {
+      //     alert('Please enter valid credentials.');
+      //   }
+      // });
+
+      // Register logic
+      registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const regId = document.getElementById('regId').value.trim();
+        const regPwd = document.getElementById('regPwd').value;
+        if (regId && regPwd) {
+          // alert('Registered successfully! Now log in.');
+          registerContainer.classList.add('hidden');
+          loginContainer.classList.remove('hidden');
+          document.getElementById('loginId').value = regId;
+        } else {
+          // alert('Please fill all fields.');
+        }
+      });
+
+      // Logout logic
+      logoutBtn?.addEventListener('click', () => {
+        dashboardContainer.classList.add('hidden');
+        loginContainer.classList.remove('hidden');
+        document.getElementById('loginId').value = '';
+        document.getElementById('loginPwd').value = '';
+      });
+
+      // Set dynamic date
+      // currentDate.textContent = new Date().toDateString();
+
+      // Randomize profile images
+      document.querySelectorAll('.profile-img').forEach(img => {
+        const userId = localStorage.getItem('studentName') || '';
+        let idx = localStorage.getItem(`profileImgIdx_${userId}`);
+        if (!idx) {
+          idx = Math.floor(Math.random() * 9) + 1;
+          localStorage.setItem(`profileImgIdx_${userId}`, idx);
+        }
+        img.src = `profile${idx}.png`;
+      });
+    });
+  </script>
+
+
+</body>
+
+<script>
+  // const userName = "Cyrus"; // or pull from your login logic
+  // document.getElementById("userName").textContent = userName || "Cyrus" ;
+
+  // const currentDate = new Date().toLocaleDateString("en-US", {
+  //   year: "numeric", month: "long", day: "numeric"
+  // });
+  // document.getElementById("currentDate").textContent = currentDate;
+</script>
+
+</html>

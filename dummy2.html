@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login & Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    body {
+      /* Animated gradient background */
+      background: linear-gradient(270deg, #263142, #1b4863, #072b42, #021e71);
+      background-size: 800% 800%;
+      animation: gradientMove 15s ease infinite;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    header, footer { padding: 1em; background: rgba(28,28,28,0.8); text-align: center; }
+    .container { padding: 2em; max-width: 1000px; margin: auto; }
+    .form-box { max-width: 400px; margin: 2em auto; background: rgba(28,28,28,0.9); padding: 2em; border-radius: 12px; }
+    .form-box h2 { margin-bottom: 1em; }
+    .form-box input { width: 100%; padding: 0.8em; margin: 0.5em 0; border: none; border-radius: 8px; }
+    .form-box button { width: 100%; padding: 0.8em; background: #00ffc8; color: #000; border: none; border-radius: 8px; cursor: pointer; margin-top: 1em; }
+    .form-box a { color: #00ffc8; font-size: 0.9em; display: block; margin-top: 0.5em; text-align: center; text-decoration: none; }
+    .hidden { display: none !important; }
+    .profile, .academic, .remarks { background: rgba(31,31,31,0.9); padding: 1em; border-radius: 12px; margin-bottom: 2em; }
+    .profile { display: flex; align-items: center; gap: 2em; }
+    .profile img { width: 120px; height: 120px; border-radius: 50%; border: 2px solid #00ffc8; object-fit: cover; }
+    .profile-details button { background: #00ffc8; color: #000; padding: 0.5em 1em; border: none; border-radius: 8px; cursor: pointer; margin-top: 0.5em; }
+    .remark { margin: 1em 0; padding: 1em; background: rgba(41,41,41,0.9); border-left: 5px solid #00ffc8; }
+    .remark button { margin: 0.2em; background: #333; color: #00ffc8; border: none; border-radius: 5px; padding: 0.3em 0.6em; cursor: pointer; }
+    footer { font-size: 0.9em; color: #aaa; }
+    footer a { color: #00ffc8; text-decoration: none; margin: 0 0.5em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Student Profile Portal</h1>
+  </header>
+
+  <div class="container">
+    <!-- Login/Register Form -->
+    <div class="form-box" id="loginBox">
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" id="loginEmail">
+      <input type="password" placeholder="Password" id="loginPassword">
+      <button onclick="login()">Login</button>
+      <a href="#" onclick="showRegister()">Register</a>
+      <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+    </div>
+
+    <div class="form-box hidden" id="registerBox">
+      <h2>Register</h2>
+      <input type="text" placeholder="Full Name" id="regName">
+      <input type="email" placeholder="Email" id="regEmail">
+      <input type="password" placeholder="Password" id="regPassword">
+      <button onclick="register()">Register</button>
+      <a href="#" onclick="showLogin()">Back to Login</a>
+    </div>
+
+    <!-- Profile Section (hidden until login) -->
+    <section class="profile hidden" id="profile">
+      <img id="profileImg" src="" alt="Profile Picture">
+      <div class="profile-details">
+        <h2 id="studentName"></h2>
+        <p id="studentEmail"></p>
+        <p id="studentDOB"></p>
+        <p id="studentPhone"></p>
+        <button onclick="editProfile()">Edit Profile</button>
+      </div>
+    </section>
+
+    <section class="academic hidden" id="academic">
+      <h3>Academic Journey</h3>
+      <ul id="academicList"></ul>
+      <button onclick="downloadTranscript()">Download Transcript</button>
+    </section>
+
+    <section class="remarks hidden" id="remarks">
+      <h3>Teacher Remarks</h3>
+      <div id="remarksContainer"></div>
+    </section>
+  </div>
+
+  <footer>
+    <p>
+      <a href="https://example.com/contact" target="_blank">Contact Us</a> |
+      <a href="https://example.com/terms" target="_blank">Terms and Conditions</a> |
+      <a href="https://example.com/privacy" target="_blank">Privacy Policy</a>
+    </p>
+  </footer>
+
+  <script>
+    function showRegister() {
+      document.getElementById('loginBox').classList.add('hidden');
+      document.getElementById('registerBox').classList.remove('hidden');
+    }
+    function showLogin() {
+      document.getElementById('registerBox').classList.add('hidden');
+      document.getElementById('loginBox').classList.remove('hidden');
+    }
+    function login() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      if (!email || !password) return alert("Please enter valid credentials.");
+
+      // Example dynamic data (replace with real backend data)
+      const student = {
+        name: "John Doe",
+        email,
+        dob: "2000-01-01",
+        phone: "1234567890",
+        profileImg: "https://via.placeholder.com/120",
+        academics: [
+          "Semester 1 - Maths: A, Physics: B+",
+          "Semester 2 - DS: A+, OOP: A"
+        ],
+        remarks: [
+          { author: "Prof. Sharma", text: "Excellent progress!" },
+          { author: "Prof. Verma", text: "Needs improvement in DS." }
+        ]
+      };
+
+      // Populate profile
+      document.getElementById('profileImg').src = student.profileImg;
+      document.getElementById('studentName').textContent = student.name;
+      document.getElementById('studentEmail').textContent = `Email: ${student.email}`;
+      document.getElementById('studentDOB').textContent = `DOB: ${student.dob}`;
+      document.getElementById('studentPhone').textContent = `Phone: ${student.phone}`;
+
+      // Populate academics
+      const acadList = document.getElementById('academicList');
+      acadList.innerHTML = student.academics.map(item => `<li>${item}</li>`).join('');
+
+      // Populate remarks
+      const remarksContainer = document.getElementById('remarksContainer');
+      remarksContainer.innerHTML = student.remarks.map(r => `
+        <div class="remark">
+          <p><strong>${r.author}:</strong> ${r.text}</p>
+          <button onclick="react('love')">❤️</button>
+          <button onclick="react('like')">👍</button>
+          <button onclick="react('clarify')">Request Clarification</button>
+        </div>
+      `).join('');
+
+      // Show sections
+      ['profile','academic','remarks'].forEach(id => {
+        document.getElementById(id).classList.remove('hidden');
+      });
+      document.getElementById('loginBox').classList.add('hidden');
+    }
+    function register() { alert('Register works.'); }
+    function forgotPassword() { alert('Password reset link sent.'); }
+    function editProfile() { alert('Redirect to edit form.'); }
+    function downloadTranscript() { alert('Download PDF.'); }
+    function react(type) { const msgs = { love:'You loved this remark.', like:'You liked this remark.', clarify:'Clarification requested.' }; alert(msgs[type]); }
+  </script>
+</body>
+</html>

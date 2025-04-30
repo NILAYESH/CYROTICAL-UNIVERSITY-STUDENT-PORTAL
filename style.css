@@ -1,0 +1,92 @@
+/* style.css */
+/* Reset & Base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: 'Inter', sans-serif; color: #fff; background: #0a0a0f; overflow: hidden; }
+.container { display: flex; align-items: center; justify-content: center; height: 100vh; position: relative; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* Background Animation */
+body {
+  background: radial-gradient(circle at bottom, #11101a, #0a0a0f 80%);
+}
+body::before {
+  content: '';
+  position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(255,0,255,0.2), transparent 70%);
+  animation: rotate 20s linear infinite;
+  z-index: 0;
+}
+@keyframes rotate { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+
+/* Glassmorphic Panel */
+.glass {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+.glass:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.8);
+}
+
+/* Form Boxes */
+.form-box { width: 320px; padding: 2rem; z-index: 20; text-align: center; }
+.form-box h2 { margin-bottom: 1.5rem; font-weight: 700; font-size: 1.5rem; }
+.form-box input {
+  width: 100%; padding: 0.7rem; margin-bottom: 1rem;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px; color: #fff;
+}
+.form-box button {
+  width: 100%; padding: 0.8rem; margin-top: 0.5rem;
+  background: #ff00ff; color: #fff; border-radius: 999px; font-weight: 500;
+  transition: background 0.3s;
+}
+.form-box button:hover { background: #e600e6; }
+.link-text { margin-top: 1rem; font-size: 0.9rem; }
+.link-text a { color: #00ffff; cursor: pointer; }
+.error { font-size: 0.9rem; color: #ff4d4d; }
+.forgot { margin-top: 0.5rem; }
+.forgot a { color: #00ffff; cursor: pointer; }
+
+/* Google Button */
+.google-btn {
+  margin-top: 1rem; width: 100%; padding: 0.6rem;
+  background: #fff; color: #444; border-radius: 999px;
+  font-weight: 500; transition: transform 0.2s;
+}
+.google-btn:hover { transform: scale(1.05); }
+
+/* Nav Bar */
+.nav { width: 100%; max-width: 800px; display: flex; justify-content: space-between; padding: 1rem; margin-bottom: 2rem; }
+.btn-outline {
+  background: transparent; color: #fff; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 999px; transition: background 0.2s;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+/* Cards Grid */
+.grid { display: grid; gap: 1.5rem; width: 100%; max-width: 800px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.card { padding: 1.5rem; min-height: 180px; position: relative; }
+.card h3 { margin-bottom: 0.75rem; font-size: 1.1rem; font-weight: 500; }
+.card p { font-size: 0.9rem; line-height: 1.4; color: rgba(255,255,255,0.8); }
+.action-btn { position: absolute; bottom: 1rem; right: 1rem; padding: 0.4rem 0.8rem;
+  background: rgba(255,255,255,0.2); border-radius: 8px; font-size: 0.8rem;
+  transition: background 0.2s;
+}
+.action-btn:hover { background: rgba(255,255,255,0.3); }
+
+/* Modal */
+.modal-bg {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;
+  visibility: hidden; opacity: 0; transition: opacity 0.3s, visibility 0.3s;
+}
+.modal-bg.show { visibility: visible; opacity: 1; }
+.modal-box { width: 360px; padding: 2rem; z-index: 30; }

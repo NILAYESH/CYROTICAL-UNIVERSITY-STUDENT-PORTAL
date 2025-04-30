@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .slider-container {
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #000;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2023/03_29_revuelto/cover.jpg" alt="Lamborghini"></div>
+            <div class="slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMtdIckoTSDhqw5rc-1iRx71FVEY5g2YZ-5oHZBbkg-r7Atn2zjUz_ImzZedFunNiobBk&usqp=CAU" alt="Car Image"></div>
+            <div class="slide"><img src="https://cdn.prod.website-files.com/5b4a3b3971d099f78f362505/656ec0ac9df01164fe5390e2_2015-Mclaren-P1-Volcano-Orange-SBM12ABA1FW000239_014.webp" alt="McLaren"></div>
+            <div class="slide"><img src="https://upload.wikimedia.org/wikipedia/en/c/c1/Silent_Hill_2_remake_cover.jpg" alt="Silent Hill 2 Remake"></div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let index = 0;
+        function moveSlide(step) {
+            const slides = document.querySelectorAll(".slide");
+            index = (index + step + slides.length) % slides.length;
+            document.querySelector(".slider").style.transform = `translateX(-${index * 100}%)`;
+        }
+    </script>
+</body>
+</html>

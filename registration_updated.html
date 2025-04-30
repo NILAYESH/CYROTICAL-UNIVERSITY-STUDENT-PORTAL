@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Registration - Cyrotical University</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+    body {
+      font-family: 'Nunito', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(-45deg, #5f049f, #310688,#2404a7, #6e0055, #880107eb);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .glow-container {
+      box-shadow:
+        0 0 10px #4019b3,
+        0 0 20px #7f5af0,
+        0 0 30px #2b117b,
+        0 0 40px #7f5af0;
+    }
+
+    .header-link:hover {
+      color: #7f5af0;
+      text-shadow:
+        0 0 5px #7f5af0,
+        0 0 10px #7f5af0;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0d1117] text-white min-h-screen flex flex-col px-4">
+  <header
+    class="w-full py-6 flex flex-col sm:flex-row items-center justify-between max-w-7xl mx-auto px-4 border-b border-[#30363d]">
+    <h1 class="text-3xl sm:text-4xl font-extrabold glow-text select-none mb-4 sm:mb-0">CYROTICAL UNIVERSITY</h1>
+    <nav class="flex space-x-6 text-sm font-semibold text-[#8b949e]">
+      <a class="header-link transition duration-200" href="Home.html">Home</a>
+      <a class="header-link transition duration-200" href="box_about.html">About</a>
+      <a class="header-link transition duration-200" href="box_about.html">Admissions</a>
+      <a class="header-link transition duration-200" href="box_about.html">Academics</a>
+      <a class="header-link transition duration-200" href="box_about.html">Contact</a>
+      <a class="header-link transition duration-200" href="box_about.html">More</a>
+    </nav>
+  </header>
+
+  <div class="min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-purple-800 text-white p-6 rounded-tr-2xl rounded-br-2xl flex flex-col">
+      <div class="flex items-center justify-center mb-8">
+        <div class="bg-purple-800 p-4 rounded-lg">
+          <i class="fas fa-graduation-cap fa-2x"></i>
+        </div>
+      </div>
+      <nav class="flex-1 space-y-4">
+        <a href="dashboard_updated.html" class="flex items-center space-x-3 text-lg font-semibold hover:text-purple-200">
+          <i class="fas fa-home"></i><span>Dashboard</span>
+        </a>
+        <a href="payment_info_updated.html" class="flex items-center space-x-3 opacity-75 hover:opacity-100">
+          <i class="fas fa-credit-card"></i><span>Payment Info</span>
+        </a>
+        <a href="registration_updated.html" class="flex items-center space-x-3 opacity-75 hover:opacity-100">
+          <i class="fas fa-user-plus"></i><span>Registration</span>
+        </a>
+        <a href="courses_updated.html" class="flex items-center space-x-3 opacity-75 hover:opacity-100">
+          <i class="fas fa-book-open"></i><span>Courses</span>
+        </a>
+        <a href="drop_semester_updated.html.html" class="flex items-center space-x-3 opacity-75 hover:opacity-100">
+          <i class="fas fa-times-circle"></i><span>Drop Semester</span>
+        </a>
+        <a href="result_updated.html" class="flex items-center space-x-3 opacity-75 hover:opacity-100">
+          <i class="fas fa-chart-bar"></i><span>Result</span>
+        </a>
+        <a href="notice_updated.html" class="flex items-center space-x-3 opacity-75 hover:opacity-100">
+          <i class="fas fa-bell"></i><span>Notice</span>
+        </a>
+        <a href="schedule_updated.html" class="flex items-center space-x-3 opacity-75 hover:opacity-100">
+          <i class="fas fa-calendar-alt"></i><span>Schedule</span>
+        </a>
+      </nav>
+      <button id="logoutBtn" class="mt-8 flex items-center space-x-3 opacity-75 hover:opacity-100 self-start">
+        <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+      </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <h2 class="text-3xl font-bold mb-6">Student Registration</h2>
+      <p class="mb-4">Welcome, <span id="userName">Cyrus</span>! Please fill out the registration form below.</p>
+      <form class="bg-white rounded-xl p-6 shadow max-w-md text-black space-y-4">
+        <div>
+          <label for="studentId" class="block font-semibold mb-1">Student ID</label>
+          <input type="text" id="studentId" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Enter your student ID" />
+        </div>
+        <div>
+          <label for="password" class="block font-semibold mb-1">Password</label>
+          <input type="password" id="password" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Create a password" />
+        </div>
+        <button type="submit" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-800">Register</button>
+      </form>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const loggedInUser = localStorage.getItem('studentName') || 'Student';
+          const userNameSpan = document.getElementById('userName');
+          if (userNameSpan) {
+            userNameSpan.textContent = loggedInUser;
+          }
+        });
+      </script>
+    </main>
+  </div>
+
+  <footer
+    class="bg-[#161b22] border-t border-[#30363d] mt-12 py-8 w-full max-w-7xl mx-auto px-6 text-[#8b949e] text-sm">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div>
+        <h3 class="text-white font-semibold mb-3">Contact Us</h3>
+        <p>College Address: 123 College St, City, State, ZIP</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Email: info@yourcollege.edu</p>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold mb-3">Quick Links</h3>
+        <ul class="space-y-1">
+          <li><a class="hover:underline" href="#">Terms and Conditions</a></li>
+          <li><a class="hover:underline" href="#">Privacy Policy</a></li>
+          <li><a class="hover:underline" href="#">Academic Calendar</a></li>
+          <li><a class="hover:underline" href="#">Student Handbook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold mb-3">Follow Us</h3>
+        <ul class="flex space-x-4">
+          <li><a aria-label="Facebook" class="hover:text-[#7f5af0]" href="#"><i class="fab fa-facebook fa-lg"></i></a>
+          </li>
+          <li><a aria-label="Twitter" class="hover:text-[#7f5af0]" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+          </li>
+          <li><a aria-label="Instagram" class="hover:text-[#7f5af0]" href="#"><i class="fab fa-instagram fa-lg"></i></a>
+          </li>
+          <li><a aria-label="LinkedIn" class="hover:text-[#7f5af0]" href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center text-xs text-[#484f58] mt-8">&copy; 2024 Your College Name. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('logoutBtn')?.addEventListener('click', () => {
+      localStorage.removeItem('studentName');
+      window.location.href = 'box.html';
+    });
+  </script>
+</body>
+
+</html>
